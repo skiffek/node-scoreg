@@ -46,47 +46,57 @@ console.log(scoutIds.length);
 
 ### constructor(username, password, accessKey, options = {})
 
-	/**
-	 * @constructor
-	 * @param {String} username
-	 * @param {String} password
-	 * @param {String} accessKey
-	 * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
-	 */
-	constructor(username, password, accessKey, options = {}) {...}
+```javascript
+/**
+ * @constructor
+ * @param {String} username
+ * @param {String} password
+ * @param {String} accessKey
+ * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
+ */
+constructor(username, password, accessKey, options = {}) {}
+```
 
 ### findScoutIdsForOrganization()
 
-	/**
-	 * @return {Promise<String[]>}
-	 */
-	findScoutIdsForOrganization() {...}
+```javascript
+/**
+ * @return {Promise<String[]>}
+ */
+findScoutIdsForOrganization() {}
+```
 
 ### findMembersForOrganization()
 
-	/**
-	 * Convenience method that calls <code>findScoutIdsForOrganization()</code> and then
-	 * for each scoutId <code>findMemberByScoutId(scoutId)</code>.
-	 * 
-	 * @return {Promise<Object[]>}
-	 */
-	findMembersForOrganization() {...}
+```javascript
+/**
+ * Convenience method that calls <code>findScoutIdsForOrganization()</code> and then
+ * for each scoutId <code>findMemberByScoutId(scoutId)</code>.
+ * 
+ * @return {Promise<Object[]>}
+ */
+findMembersForOrganization() {}
+```
 
 ### findMemberByScoutId(scoutId)
 
-	/**
-	 * @param {String} scoutId
-	 * @return {Promise<Object>}
-	 */
-	findMemberByScoutId(scoutId) {...}
+```javascript
+/**
+ * @param {String} scoutId
+ * @return {Promise<Object>}
+ */
+findMemberByScoutId(scoutId) {}
+```
 
 ### findMemberCompleteByScoutId(scoutId)
 
-	/**
-	 * @param {String} scoutId
-	 * @return {Promise<Object>}
-	 */
-	 findMemberCompleteByScoutId(scoutId) {...}
+```javascript
+/**
+ * @param {String} scoutId
+ * @return {Promise<Object>}
+ */
+ findMemberCompleteByScoutId(scoutId) {}
+```
 
 
 ## License
