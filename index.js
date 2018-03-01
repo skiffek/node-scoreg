@@ -5,10 +5,11 @@ const fetch = require("node-fetch");
 
 module.exports = class Scoreg {
 	/**
-	 * @param String username
-	 * @param String password
-	 * @param String accessKey
-	 * @param Object options for node-fetch
+	 * @constructor
+	 * @param {String} username
+	 * @param {String} password
+	 * @param {String} accessKey
+	 * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
 	 */
 	constructor(username, password, accessKey, options = {}) {
 		this.username = username;
@@ -21,9 +22,10 @@ module.exports = class Scoreg {
 	}
 	
 	/**
-	 * @param String path relative to BASE_URL
-	 * @param Object options for node-fetch
-	 * @return Promise<Object>
+	 * @protected
+	 * @param {String} path - Path to fetch, relative to BASE_URL
+	 * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
+	 * @return {Promise<Object>}
 	 */
 	fetch(path, options = {}) {
 		options = Object.assign({}, this.options, options);
@@ -45,7 +47,7 @@ module.exports = class Scoreg {
 	}
 	
 	/**
-	 * @return Promise<Array>
+	 * @return {Promise<String[]>}
 	 */
 	findScoutIdsForOrganization() {
 		return this.fetch(`/memberV2/findScoutIdsForOrganization/`).then(content => content.list);
@@ -55,7 +57,7 @@ module.exports = class Scoreg {
 	 * Convenience method that calls <code>findScoutIdsForOrganization()</code> and then
 	 * for each scoutId <code>findMemberByScoutId(scoutId)</code>.
 	 * 
-	 * @return Promise<Array>
+	 * @return {Promise<Object[]>}
 	 */
 	findMembersForOrganization() {
 		return this.findScoutIdsForOrganization().then(scoutIds => {
@@ -64,16 +66,16 @@ module.exports = class Scoreg {
 	}
 	
 	/**
-	 * @param String scoutId
-	 * @return Promise<Object>
+	 * @param {String} scoutId
+	 * @return {Promise<Object>}
 	 */
 	findMemberByScoutId(scoutId) {
 		return this.fetch(`/memberV2/findMemberByScoutId/${scoutId}/`);
 	}
 	
 	/**
-	 * @param String scoutId
-	 * @return Promise<Object>
+	 * @param {String} scoutId
+	 * @return {Promise<Object>}
 	 */
 	findMemberCompleteByScoutId(scoutId) {
 		return this.fetch(`/memberV2/findMemberCompleteByScoutId/${scoutId}/`);
