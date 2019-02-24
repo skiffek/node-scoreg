@@ -63,6 +63,7 @@ constructor(username, password, accessKey, options = {}) {}
  * @return {Promise<String[]>}
  */
 findScoutIdsForOrganization() {}
+```
 
 ### findMemberByScoutId(scoutId)
 
