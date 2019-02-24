@@ -4,17 +4,6 @@ node-scoreg
 A simple client to the [scoreg.at](https://scoreg.at/) webservices.
 
 
-## How to get your access key
-
-Ask your Gruppen-Administrator! The Gruppen-Administrator will...
-
-1. Log in to SCOREG
-2. Open your member details (the page with your "Stammdaten", "Details", "Beschreibung", etc.)
-3. Click on tab "Berechtigungen"
-4. Add "WebService-Zugriff Mitglieder (Gruppe)" for your organization to you
-4. Locate the access key for your organization within the table, and send it to you
-
-
 ## Install
 
 ```sh
@@ -42,6 +31,18 @@ const scoutIds = await scoreg.findScoutIdsForOrganization();
 console.log(scoutIds.length);
 ```
 
+
+## How to get your access key
+
+Ask your Gruppen-Administrator! The Gruppen-Administrator will...
+
+1. Log in to SCOREG
+2. Open your member details (the page with your "Stammdaten", "Details", "Beschreibung", etc.)
+3. Click on tab "Berechtigungen"
+4. Add "WebService-Zugriff Mitglieder (Gruppe)" for your organization to you
+4. Locate the access key for your organization within the table, and send it to you
+
+
 ## API
 
 ### constructor(username, password, accessKey, options = {})
@@ -64,19 +65,6 @@ constructor(username, password, accessKey, options = {}) {}
  * @return {Promise<String[]>}
  */
 findScoutIdsForOrganization() {}
-```
-
-### findMembersForOrganization()
-
-```javascript
-/**
- * Convenience method that calls <code>findScoutIdsForOrganization()</code> and then
- * for each scoutId <code>findMemberByScoutId(scoutId)</code>.
- * 
- * @return {Promise<Object[]>}
- */
-findMembersForOrganization() {}
-```
 
 ### findMemberByScoutId(scoutId)
 

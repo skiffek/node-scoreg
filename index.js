@@ -1,6 +1,5 @@
 const BASE_URL = "https://www.scoreg.at/ScoregWebServer/services/v1";
 
-const https = require("https");
 const fetch = require("node-fetch");
 
 module.exports = class Scoreg {
@@ -15,69 +14,55 @@ module.exports = class Scoreg {
 		this.username = username;
 		this.password = password;
 		this.accessKey = accessKey;
-		
-		this.options = Object.assign({
-			agent: new https.Agent({ keepAlive: true, maxSockets: 8 }),
-		}, options);
+		this.options = options;
 	}
-	
+
 	/**
 	 * @protected
 	 * @param {String} path - Path to fetch, relative to BASE_URL
 	 * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
-	 * @return {Promise<Object>}
+	 * @return {Promise<*>}
 	 */
-	fetch(path, options = {}) {
+	async fetch(path, options = {}) {
 		options = Object.assign({}, this.options, options);
-		
+
 		if (!(options.headers instanceof fetch.Headers))
 			options.headers = new fetch.Headers(options.headers);
 
-		options.headers.set("accessKey", this.accessKey);
+		options.headers.set("Accept", "application/json");
+		options.headers.set("AccessKey", this.accessKey);
 		options.headers.set("Authorization", [
 			"Basic", Buffer.from(`${this.username}:${this.password}`, "ascii").toString("base64")
 		].join(" "));
-		
+
 		return fetch(`${BASE_URL}/${path.replace(/^\//, "")}`, options).then(response => {
 			if (!response.ok)
 				throw new Error(response.statusText);
-			
+
 			return response.json();
 		});
 	}
-	
+
 	/**
 	 * @return {Promise<String[]>}
 	 */
-	findScoutIdsForOrganization() {
-		return this.fetch(`/memberV2/findScoutIdsForOrganization/`).then(content => content.list);
+	async findScoutIdsForOrganization() {
+		return this.fetch("/memberV2/findScoutIdsForOrganization/").then(content => content.list);
 	}
-	
-	/**
-	 * Convenience method that calls <code>findScoutIdsForOrganization()</code> and then
-	 * for each scoutId <code>findMemberByScoutId(scoutId)</code>.
-	 * 
-	 * @return {Promise<Object[]>}
-	 */
-	findMembersForOrganization() {
-		return this.findScoutIdsForOrganization().then(scoutIds => {
-			return Promise.all(scoutIds.map(scoutId => this.findMemberByScoutId(scoutId)));
-		});
-	}
-	
+
 	/**
 	 * @param {String} scoutId
 	 * @return {Promise<Object>}
 	 */
-	findMemberByScoutId(scoutId) {
+	async findMemberByScoutId(scoutId) {
 		return this.fetch(`/memberV2/findMemberByScoutId/${scoutId}/`);
 	}
-	
+
 	/**
 	 * @param {String} scoutId
 	 * @return {Promise<Object>}
 	 */
-	findMemberCompleteByScoutId(scoutId) {
+	async findMemberCompleteByScoutId(scoutId) {
 		return this.fetch(`/memberV2/findMemberCompleteByScoutId/${scoutId}/`);
 	}
 };

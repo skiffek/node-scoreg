@@ -1,17 +1,18 @@
 {
 	"name": "node-scoreg",
-	"version": "1.0.2",
+	"version": "2.0.0",
 	"description": "A simple client to the scoreg.at webservices",
-	"keywords": "scoreg, scouts",
+	"keywords": [ "scoreg" , "scouts" ],
 	"bugs": "https://github.com/skiffek/node-scoreg/issues",
+	"homepage": "https://scoreg.at/",
 	"author": "Wolfgang Sassik <wolfgang@sassik.at> (http://www.sassik.at/)",
 	"license": "Unlicense",
 	"repository": "github:skiffek/node-scoreg",
 	"main": "index.js",
 	"engines": {
-		"node": "^8.9.3"
+		"node": "^8.15.0"
 	},
 	"dependencies": {
-		"node-fetch": "^2.0.0"
+		"node-fetch": "^2.3.0"
 	}
 }
