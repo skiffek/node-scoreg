@@ -18,8 +18,6 @@ const Scoreg = require("node-scoreg");
 const scoreg = new Scoreg("myUsername", "myPassword", "myAccessKey");
 
 scoreg.findScoutIdsForOrganization().then(scoutIds => console.log(scoutIds));
-scoreg.findMembersForOrganization().then(members => console.log(members));
-
 scoreg.findMemberByScoutId("anyScoutId").then(member => console.log(member));
 scoreg.findMemberCompleteByScoutId("anyScoutId").then(memberComplete => console.log(memberComplete));
 ```
