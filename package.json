@@ -1,8 +1,11 @@
 {
 	"name": "node-scoreg",
-	"version": "2.0.2",
+	"version": "2.1.0",
 	"description": "A simple client to the scoreg.at webservices",
-	"keywords": [ "scoreg" , "scouts" ],
+	"keywords": [
+		"scoreg",
+		"scouts"
+	],
 	"bugs": "https://github.com/skiffek/node-scoreg/issues",
 	"homepage": "https://scoreg.at/",
 	"author": "Wolfgang Sassik <wolfgang@sassik.at> (http://www.sassik.at/)",
@@ -14,5 +17,8 @@
 	},
 	"dependencies": {
 		"node-fetch": "^2.3.0"
+	},
+	"devDependencies": {
+		"eslint": "^5.15.1"
 	}
 }

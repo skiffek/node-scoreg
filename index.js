@@ -1,5 +1,6 @@
 const BASE_URL = "https://www.scoreg.at/ScoregWebServer/services/v1";
 
+const https = require("https");
 const fetch = require("node-fetch");
 
 module.exports = class Scoreg {
@@ -8,13 +9,14 @@ module.exports = class Scoreg {
 	 * @param {String} username
 	 * @param {String} password
 	 * @param {String} accessKey
-	 * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
+	 * @param {Object} [agent={ keepAlive: true }] - An instance of {@link https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_class_http_agent https.Agent}, or options to create one
 	 */
-	constructor(username, password, accessKey, options = {}) {
+	constructor(username, password, accessKey, agent = { keepAlive: true }) {
 		this.username = username;
 		this.password = password;
 		this.accessKey = accessKey;
-		this.options = options;
+		this.agent = (agent instanceof https.Agent)
+			? agent : new https.Agent(agent);
 	}
 
 	/**
@@ -24,7 +26,9 @@ module.exports = class Scoreg {
 	 * @return {Promise<*>}
 	 */
 	async fetch(path, options = {}) {
-		options = Object.assign({}, this.options, options);
+		options = Object.assign({}, {
+			agent: this.agent,
+		}, options);
 
 		if (!(options.headers instanceof fetch.Headers))
 			options.headers = new fetch.Headers(options.headers);
