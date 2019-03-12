@@ -51,9 +51,9 @@ Ask your Gruppen-Administrator! The Gruppen-Administrator will...
  * @param {String} username
  * @param {String} password
  * @param {String} accessKey
- * @param {Object} [options={}] - Options for {@link https://www.npmjs.com/package/node-fetch node-fetch}
+ * @param {Object} [agent={ keepAlive: true }] - An instance of {@link https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_class_http_agent https.Agent}, or options to create one
  */
-constructor(username, password, accessKey, options = {}) {}
+constructor(username, password, accessKey, agent = { keepAlive: true }) {}
 ```
 
 ### findScoutIdsForOrganization()
