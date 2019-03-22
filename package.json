@@ -1,6 +1,6 @@
 {
 	"name": "node-scoreg",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"description": "A simple client to the scoreg.at webservices",
 	"keywords": [
 		"scoreg",
