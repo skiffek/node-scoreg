@@ -1,0 +1,19 @@
+{
+	"include": [
+        "src/**/*"
+    ],
+    "compilerOptions": {
+        "target": "es6",
+		"lib": [ "es6" ],
+		"rootDir": "src",
+        "outDir": "dist",
+        "module": "commonjs",
+		"moduleResolution": "node",
+		"strict": true,
+		"declaration": true,
+		"sourceMap": true,
+		"types":[ "node" ],
+        "esModuleInterop": true,
+        "noImplicitAny": true
+    }
+}

@@ -11,14 +11,38 @@
 	"author": "Wolfgang Sassik <wolfgang@sassik.at> (http://www.sassik.at/)",
 	"license": "Unlicense",
 	"repository": "github:skiffek/node-scoreg",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"clean": "rimraf dist/",
+		"lint": "tslint -c tslint.json -p tsconfig.json",
+		"build": "tsc",
+		"pretest": "npm run clean && npm run build",
+		"test": "npm run test:cov",
+		"test:spec": "mocha --recursive --sort -r test/support/setup",
+		"test:cov": "nyc --check-coverage npm run test:spec",
+		"posttest": "npm run lint",
+		"prepare": "npm run clean && npm run build"
+	},
 	"engines": {
-		"node": "^8.15.0"
+		"node": ">=8.15.1"
 	},
 	"dependencies": {
-		"node-fetch": "^2.3.0"
+		"axios": "^0.18.0"
 	},
 	"devDependencies": {
-		"eslint": "^5.15.1"
+		"@types/node": "^11.11.5",
+		"axios-mock-adapter": "^1.16.0",
+		"chai": "^4.2.0",
+		"chai-as-promised": "^7.1.1",
+		"eslint": "^5.15.3",
+		"mocha": "^6.0.2",
+		"nyc": "^13.3.0",
+		"rimraf": "^2.6.3",
+		"tslint": "^5.14.0",
+		"typescript": "^3.3.4000"
 	}
 }

@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "11"
+  - "10"
+  - "8"
+
+notifications:
+  email:
+	  on_success: never
+		on_failure: change
+
+cache: npm
+
+deploy:
+  provider: npm
+  email: wolfgang@sassik.at
+  api_key:
+    secure: t/1C5lmdwEzqnJRdd84SwIATpgZwXKNotWkM+z+TqDqkY/8NSJLTsF0zQPWZeexap5YvJPSjdy4ag3u9YCQjlJk55pYPUbaB2rgBHvVrI2JFY1lQCcjH+zLLbwMbF9YEQ1538aRKtK74M2jvjY4mHK+5C951sCwJSZJOsHs+rvCTT8TTCpdJkARmBlPgDTnHrJvsmnQ1NkmmfbQMfssHcpF1kPG+LUOueLc51267DHMCYFZ6kny4TAx2q8Z6ECkPqNgi1hn/Cz1c3XMPLnpmWnjqkQbJGoU42i3C3q5YOb2hHdcwWcgCoyDdik/0/UkOiKPDGl7y/oKgt8jdIhnuOSH9w28qEYxR4kVOSM52Nx3s6YwsVCZkWVzey8dAmcqAltexVGKdddjaYHVVSMlVorV6Y5NVKTgA8OIIkXG43XdeMMpn9pKvzuA41risbAiPQ8FLhyH6TOeJ900S6SWk8aMDUke5PLjAu6RMLqa3yS2+h1OxJaZvnk7wuueQAPb7+QtbJgensZeZy3mwP3AiCHwP4WUf/kd8UtfHQlTxCm/KLS+dulj1kDPECqVTXIZ+5dtlFgCavSoJV/w9+gy3l3DJR9oSKynG1AaGvmEJclD4hpGE93KkH4Xn/zQVEybydnLELKgCGL6bluxlgecCsRvTMlV0W2iOMyJwdyy/u0A=
+  on:
+    tags: true
+    repo: skiffek/node-scoreg
