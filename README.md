@@ -1,7 +1,11 @@
+[![npm version](https://img.shields.io/npm/v/node-scoreg.svg?style=flat-square)](https://www.npmjs.org/package/node-scoreg)
+[![build status](https://img.shields.io/travis/skiffek/node-scoreg.svg?style=flat-square)](https://travis-ci.org/skiffek/node-scoreg)
+
+
 node-scoreg
 ===========
 
-A simple client to the [scoreg.at](https://scoreg.at/) webservices.
+A simple client to the [scoreg.at](https://scoreg.at/) webservices, now with TypeScript support.
 
 
 ## Install
@@ -14,18 +18,18 @@ $ npm install node-scoreg --save
 ## Usage
 
 ```javascript
-const Scoreg = require("node-scoreg");
-const scoreg = new Scoreg("myUsername", "myPassword", "myAccessKey");
+const { MemberV2 } = require("node-scoreg");
+const memberV2service = new MemberV2("myUsername", "myPassword", "myAccessKey");
 
-scoreg.findScoutIdsForOrganization().then(scoutIds => console.log(scoutIds));
-scoreg.findMemberByScoutId("anyScoutId").then(member => console.log(member));
-scoreg.findMemberCompleteByScoutId("anyScoutId").then(memberComplete => console.log(memberComplete));
+memberV2service.findScoutIdsForOrganization().then(scoutIds => console.log(scoutIds));
+memberV2service.findMemberByScoutId("anyScoutId").then(member => console.log(member));
+memberV2service.findMemberCompleteByScoutId("anyScoutId").then(memberComplete => console.log(memberComplete));
 ```
 
 As of ECMAScript 2017 (ES8), you can also use [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await):
 
 ```javascript
-const scoutIds = await scoreg.findScoutIdsForOrganization();
+const scoutIds = await memberV2service.findScoutIdsForOrganization();
 console.log(scoutIds.length);
 ```
 
@@ -48,19 +52,20 @@ Ask your Gruppen-Administrator! The Gruppen-Administrator will...
 ```javascript
 /**
  * @constructor
- * @param {String} username
- * @param {String} password
- * @param {String} accessKey
- * @param {Object} [agent={ keepAlive: true }] - An instance of {@link https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_class_http_agent https.Agent}, or options to create one
+ * @param {object} options
+ * @param {string} options.username
+ * @param {string} options.password
+ * @param {string} options.accessKey
+ * @param {object} [options.agent={ keepAlive: true }] - An instance of {@link https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_class_http_agent https.Agent}, or options to create one
  */
-constructor(username, password, accessKey, agent = { keepAlive: true }) {}
+constructor({ username, password, accessKey, agent = { keepAlive: true } }) {}
 ```
 
 ### findScoutIdsForOrganization()
 
 ```javascript
 /**
- * @return {Promise<String[]>}
+ * @return {Promise<string[]>}
  */
 findScoutIdsForOrganization() {}
 ```
@@ -69,8 +74,8 @@ findScoutIdsForOrganization() {}
 
 ```javascript
 /**
- * @param {String} scoutId
- * @return {Promise<Object>}
+ * @param {string} scoutId
+ * @return {Promise<object>}
  */
 findMemberByScoutId(scoutId) {}
 ```
@@ -79,8 +84,8 @@ findMemberByScoutId(scoutId) {}
 
 ```javascript
 /**
- * @param {String} scoutId
- * @return {Promise<Object>}
+ * @param {string} scoutId
+ * @return {Promise<object>}
  */
  findMemberCompleteByScoutId(scoutId) {}
 ```
