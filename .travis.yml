@@ -1,19 +1,17 @@
 language: node_js
 node_js:
- - "11"
- - "10"
- - "8"
-
+- '11'
+- '10'
+- '8'
 notifications:
- email:
-  on_success: never
-  on_failure: change
-
+  email:
+    on_success: never
+    on_failure: change
 deploy:
- provider: npm
- email: wolfgang@sassik.at
- api_key:
-  secure: t/1C5lmdwEzqnJRdd84SwIATpgZwXKNotWkM+z+TqDqkY/8NSJLTsF0zQPWZeexap5YvJPSjdy4ag3u9YCQjlJk55pYPUbaB2rgBHvVrI2JFY1lQCcjH+zLLbwMbF9YEQ1538aRKtK74M2jvjY4mHK+5C951sCwJSZJOsHs+rvCTT8TTCpdJkARmBlPgDTnHrJvsmnQ1NkmmfbQMfssHcpF1kPG+LUOueLc51267DHMCYFZ6kny4TAx2q8Z6ECkPqNgi1hn/Cz1c3XMPLnpmWnjqkQbJGoU42i3C3q5YOb2hHdcwWcgCoyDdik/0/UkOiKPDGl7y/oKgt8jdIhnuOSH9w28qEYxR4kVOSM52Nx3s6YwsVCZkWVzey8dAmcqAltexVGKdddjaYHVVSMlVorV6Y5NVKTgA8OIIkXG43XdeMMpn9pKvzuA41risbAiPQ8FLhyH6TOeJ900S6SWk8aMDUke5PLjAu6RMLqa3yS2+h1OxJaZvnk7wuueQAPb7+QtbJgensZeZy3mwP3AiCHwP4WUf/kd8UtfHQlTxCm/KLS+dulj1kDPECqVTXIZ+5dtlFgCavSoJV/w9+gy3l3DJR9oSKynG1AaGvmEJclD4hpGE93KkH4Xn/zQVEybydnLELKgCGL6bluxlgecCsRvTMlV0W2iOMyJwdyy/u0A=
- on:
-  tags: true
-  repo: skiffek/node-scoreg
+  provider: npm
+  email: wolfgang@sassik.at
+  api_key:
+    secure: QFDj0Uk8fmIF0txSiRE+I2xFqyxhoIwqePfNOXGmBuKcphy+k238YqPwY0eEtQ8T0vfTKRbRYmG6KERbHFS2BKa6TtIUEHyKkxD5B3TH0OKuZY17BzcPQ90mq7z/WXq9Nqj5dD7+k9QRwm/S7AWDK9q0+/McpC7Dhk7c7rqlzrQfBFgVkxFoY2w2+KFrOLk6GzBQ8ocJyEJq8MFuz+yecHpE37Q7SJRkPjny4o1P0sgGixDWXpUiY9pS2mOYRE7VEdNCCUiQPWo7lpE593Cc9K+W/NJq7D3An7vbzrPterwz+ohzfV35ShMOVm+qrfZ+LHLt0bc5X5mm6S43b9fWceXp1DbztxR1qJLWrY4naEdXmO7p7NAq5naddcbS3RPckxEOpI/fRzhsdqyBIP/RI1xKiPmD+ob/IOR/LUWyg63PTfRnP2Vi9mN9XP5Kzb2rM4qw019GzCeYaPo8/TuFyfTCmGez0Q2YT3T5ru1bY4xsT89ZzNH1qVoVYY5m6z12VP/vBk6qcTyJThsmjK5iCw4528e7lEQ+DV+gA47IbpneuhuXYJlMyn5mTGjrXkUU3zbzJjsnV9Wg2ScRNPRqbzVr/XcoEzawBLElbKTvfaqHC6krO5pxK8Mb2KGpJlrSkI/aJsEi/9Hs2IABn7HDU82z5WEGP+XgwH+17KHW23Q=
+  on:
+    tags: true
+    repo: skiffek/node-scoreg
