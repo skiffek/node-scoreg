@@ -51,7 +51,7 @@ Ask your Gruppen-Administrator! The Gruppen-Administrator will...
 
 ## API
 
-### constructor(username, password, accessKey, options = {})
+### constructor({ username, password, accessKey, agent = { keepAlive: true } })
 
 ```javascript
 /**
