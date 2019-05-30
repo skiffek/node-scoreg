@@ -34,15 +34,15 @@
 		"axios": "^0.18.0"
 	},
 	"devDependencies": {
-		"@types/node": "^11.11.5",
+		"@types/node": "^11.13.12",
 		"axios-mock-adapter": "^1.16.0",
 		"chai": "^4.2.0",
 		"chai-as-promised": "^7.1.1",
-		"eslint": "^5.15.3",
-		"mocha": "^6.0.2",
-		"nyc": "^13.3.0",
+		"eslint": "^5.16.0",
+		"mocha": "^6.1.4",
+		"nyc": "^14.1.1",
 		"rimraf": "^2.6.3",
-		"tslint": "^5.14.0",
-		"typescript": "^3.3.4000"
+		"tslint": "^5.16.0",
+		"typescript": "^3.5.1"
 	}
 }
