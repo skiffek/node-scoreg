@@ -28,13 +28,13 @@
 		"prepare": "npm run clean && npm run build"
 	},
 	"engines": {
-		"node": ">=8.15.1"
+		"node": ">=15.6.1"
 	},
 	"dependencies": {
-		"axios": "^0.18.1"
+		"axios": "^0.27.2"
 	},
 	"devDependencies": {
-		"@types/node": "^11.15.7",
+		"@types/node": "^15.6.1",
 		"axios-mock-adapter": "^1.17.0",
 		"chai": "^4.2.0",
 		"chai-as-promised": "^7.1.1",

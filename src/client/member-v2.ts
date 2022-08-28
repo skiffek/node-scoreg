@@ -3,7 +3,7 @@ import Client from "../client";
 export default class MemberV2 extends Client {
 	public async findScoutIdsForOrganization(): Promise<string[]> {
 		const pathname = "/memberV2/findScoutIdsForOrganization/";
-		const response = await this.request<{ list: string[]}>(pathname);
+		const response = await this.request<{ list: string[] }>(pathname);
 
 		if (!Array.isArray(response.data.list))
 			throw new Error("Server didn't respond with a list array");
@@ -12,7 +12,8 @@ export default class MemberV2 extends Client {
 	}
 
 	public async findMemberByScoutId(scoutId: string): Promise<Member> {
-		const pathname = `/memberV2/findMemberByScoutId/${encodeURIComponent(scoutId)}/`;
+		const encodedScoutId = encodeURIComponent(scoutId);
+		const pathname = `/memberV2/findMemberByScoutId/${encodedScoutId}/`;
 		const response = await this.request<Member>(pathname);
 
 		if ("object" !== typeof response.data)
@@ -21,8 +22,11 @@ export default class MemberV2 extends Client {
 		return response.data;
 	}
 
-	public async findMemberCompleteByScoutId(scoutId: string): Promise<MemberComplete> {
-		const pathname = `/memberV2/findMemberCompleteByScoutId/${encodeURIComponent(scoutId)}/`;
+	public async findMemberCompleteByScoutId(
+		scoutId: string
+	): Promise<MemberComplete> {
+		const encodedScoutId = encodeURIComponent(scoutId);
+		const pathname = `/memberV2/findMemberCompleteByScoutId/${encodedScoutId}/`;
 		const response = await this.request<MemberComplete>(pathname);
 
 		if ("object" !== typeof response.data)
